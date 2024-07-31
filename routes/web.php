@@ -7,8 +7,10 @@ Route::get('/', function () {
 });
 
 Route::get('/items', function () {
+    return view('items.index');
 })->name('items.index');
 Route::get('/items/create', function () {
+    return view('items.create');
 })->name('items.create');
 Route::post('/items', function () {
 })->name('items.store');
