@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/items', function () {
-    return view('items.index');
-})->name('items.index');
+Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+
 Route::get('/items/create', function () {
     return view('items.create');
 })->name('items.create');
