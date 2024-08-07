@@ -51,7 +51,9 @@ class ItemController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = Item::find($id);
+
+        return view('items.edit', compact('item'));
     }
 
     /**
@@ -59,7 +61,12 @@ class ItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $item = Item::find($id);
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->save();
+
+        return redirect()->route('items.index');
     }
 
     /**
