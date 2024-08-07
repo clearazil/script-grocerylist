@@ -13,12 +13,11 @@ Route::get('/items/create', [ItemController::class, 'create'])->name('items.crea
 Route::get('/items/create', function () {
     return view('items.create');
 })->name('items.create');
-Route::post('/items', function () {
-})->name('items.store');
+Route::post('/items', [ItemController::class, 'store'])->name('items.store');
 Route::get('/items/{id}', function () {
 })->name('items.show');
 Route::get('/items/{id}/edit', function () {
 })->name('items.edit');
 Route::put('/items/{id}', function () {
 })->name('items.update');
-Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
+Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.destroy');
