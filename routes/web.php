@@ -21,5 +21,4 @@ Route::get('/items/{id}/edit', function () {
 })->name('items.edit');
 Route::put('/items/{id}', function () {
 })->name('items.update');
-Route::delete('/items/{id}', function () {
-})->name('items.destroy');
+Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');

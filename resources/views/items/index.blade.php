@@ -18,7 +18,14 @@
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->description }}</td>
-                    <td>Bewerken/Verwijderen</td>
+                    <td>
+                        Bewerken
+                        <form action="{{ route('items.destroy', $item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Verwijderen</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
