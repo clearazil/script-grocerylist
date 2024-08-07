@@ -49,19 +49,16 @@ class ItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Item $item)
     {
-        $item = Item::find($id);
-
         return view('items.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Item $item)
     {
-        $item = Item::find($id);
         $item->name = $request->input('name');
         $item->description = $request->input('description');
         $item->save();
