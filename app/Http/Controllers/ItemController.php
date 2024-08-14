@@ -33,10 +33,7 @@ class ItemController extends Controller
     {
         $validation = $request->validated();
 
-        $item = new Item();
-        $item->name = $validation['name'];
-        $item->description = $validation['description'];
-        $item->save();
+        Item::create($validation);
 
         return redirect()->route('items.index');
     }
@@ -64,9 +61,7 @@ class ItemController extends Controller
     {
         $validation = $request->validated();
 
-        $item->name = $validation['name'];
-        $item->description = $validation['description'];
-        $item->save();
+        $item->update($validation);
 
         return redirect()->route('items.index');
     }
